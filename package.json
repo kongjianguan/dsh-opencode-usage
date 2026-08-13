@@ -1,0 +1,17 @@
+{
+  "name": "@local/dsh-opencode-usage",
+  "version": "0.2.6",
+  "private": true,
+  "description": "Persistent opencode.ai usage widget: header progress + settings page + webServer API routes.",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "client": {
+      "platform": "web"
+    }
+  }
+}
