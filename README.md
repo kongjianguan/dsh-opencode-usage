@@ -2,22 +2,7 @@
 
 DeepSeek Harness（`dsh web`）持久化插件：在**输入框工具行右侧**显示 **opencode.ai 额度用量同心圆**（5 小时 / 本周 / 本月），hover 弹出详情面板，实时重置倒计时。
 
-## 功能
-
-- **输入框同心圆**（可选，默认开启）：在输入框工具行右侧（模型名左侧）显示三层同心圆——最内层月、中间层周、最外层 5 小时额度；圆环按真实百分比绘制（0% 不画弧、100% 无端帽凸起、低百分比保持比例）
-- **hover 详情面板**：鼠标悬停同心圆即弹出 5h / 周 / 月 三行详情（进度条 + 百分比 + 重置倒计时，每秒实时跳动）；移开 180ms 自动收起；键盘 `Enter`/`Space` 可切换、`Esc` 关闭
-- **面板右上角刷新按钮**：点击强制刷新用量（绕过缓存）
-- **最顶层显示**：面板 `position: fixed` + 最大 z-index，不被任何侧边栏遮挡
-- **不覆盖侧边栏**：面板自动探测聊天区可用范围（左右侧边栏之间），优先贴输入框右缘展开；聊天区变窄时右移避让左侧栏
-- **宽度自适应**：聊天区 ≥264px 时面板 264px 正常显示；264–200px 时收缩至聊天区宽−16px（紧凑模式：压缩 label、隐藏重置倒计时）；**<200px 时隐藏面板，降级为原生 tooltip**（按钮 title 三行摘要）
-- **按钮自动隐藏**：窄布局下用量按钮与左侧元素（权限按钮等）重叠时自动隐藏按钮本身，空间恢复后自动显示（带滞回防抖动）
-- **配色对齐官方 ContextMeter**（0 硬编码色值，全部使用 dsh web 设计令牌，随主题自动切换）：
-  - 弹窗：背景 `--dsw-specific-menu`、边框 `--dsw-alias-border-inverted`（hairline）、阴影 `--dsw-shadow-lv3`、圆角 12px、正文 `label-secondary`、数字 `label-primary`
-  - 按钮/圆环：图标 `label-secondary`、hover 背景 `interactive-bg-hover`、圆环轨道 `border-l3`、圆环填充 `label-tertiary`
-  - 进度条：轨道 `interactive-bg-hover`、填充与色块 `label-tertiary`、百分比数字 `label-primary`
-  - 设置页：状态消息成功 `state-success-primary` / 失败 `state-error-primary`，其余控件随 dsh 默认令牌
-- **原生 tooltip 协调**：弹窗打开时清空按钮原生 tooltip，避免双重提示；弹窗隐藏（空间不足）时原生 tooltip 兜底
-- **设置页**（设置 → OpenCode 用量）：Workspace ID、完整 Auth Cookie、刷新间隔、输入框同心圆开关；配置持久化到 `~/.dsh/ocu-config.json`（0600），重启不丢
+English version: [README-en.md](./README-en.md)
 
 ## 安装
 
@@ -36,6 +21,23 @@ DeepSeek Harness（`dsh web`）持久化插件：在**输入框工具行右侧**
    ```
 
 3. **重启 `dsh web`**（客户端模块扫描需重启生效；之后插件支持热重载）。
+
+## 功能
+
+- **输入框同心圆**（可选，默认开启）：在输入框工具行右侧（模型名左侧）显示三层同心圆——最内层月、中间层周、最外层 5 小时额度；圆环按真实百分比绘制（0% 不画弧、100% 无端帽凸起、低百分比保持比例）
+- **hover 详情面板**：鼠标悬停同心圆即弹出 5h / 周 / 月 三行详情（进度条 + 百分比 + 重置倒计时，每秒实时跳动）；移开 180ms 自动收起；键盘 `Enter`/`Space` 可切换、`Esc` 关闭
+- **面板右上角刷新按钮**：点击强制刷新用量（绕过缓存）
+- **最顶层显示**：面板 `position: fixed` + 最大 z-index，不被任何侧边栏遮挡
+- **不覆盖侧边栏**：面板自动探测聊天区可用范围（左右侧边栏之间），优先贴输入框右缘展开；聊天区变窄时右移避让左侧栏
+- **宽度自适应**：聊天区 ≥264px 时面板 264px 正常显示；264–200px 时收缩至聊天区宽−16px（紧凑模式：压缩 label、隐藏重置倒计时）；**<200px 时隐藏面板，降级为原生 tooltip**（按钮 title 三行摘要）
+- **按钮自动隐藏**：窄布局下用量按钮与左侧元素（权限按钮等）重叠时自动隐藏按钮本身，空间恢复后自动显示（带滞回防抖动）
+- **配色对齐官方 ContextMeter**（0 硬编码色值，全部使用 dsh web 设计令牌，随主题自动切换）：
+  - 弹窗：背景 `--dsw-specific-menu`、边框 `--dsw-alias-border-inverted`（hairline）、阴影 `--dsw-shadow-lv3`、圆角 12px、正文 `label-secondary`、数字 `label-primary`
+  - 按钮/圆环：图标 `label-secondary`、hover 背景 `interactive-bg-hover`、圆环轨道 `border-l3`、圆环填充 `label-tertiary`
+  - 进度条：轨道 `interactive-bg-hover`、填充与色块 `label-tertiary`、百分比数字 `label-primary`
+  - 设置页：状态消息成功 `state-success-primary` / 失败 `state-error-primary`，其余控件随 dsh 默认令牌
+- **原生 tooltip 协调**：弹窗打开时清空按钮原生 tooltip，避免双重提示；弹窗隐藏（空间不足）时原生 tooltip 兜底
+- **设置页**（设置 → OpenCode 用量）：Workspace ID、完整 Auth Cookie、刷新间隔、输入框同心圆开关；配置持久化到 `~/.dsh/ocu-config.json`（0600），重启不丢
 
 ## 使用
 
