@@ -1,7 +1,6 @@
 {
-  "name": "@local/dsh-opencode-usage",
-  "version": "0.2.6",
-  "private": true,
+  "name": "@kongjianguan/dsh-opencode-usage",
+  "version": "0.2.7",
   "description": "Persistent opencode.ai usage widget: header progress + settings page + webServer API routes.",
   "main": "lib/index.js",
   "exports": {
@@ -10,8 +9,17 @@
     "./package.json": "./package.json"
   },
   "dsh": {
+    "bundle": {
+      "patch": "cordis.patch.yml"
+    },
     "client": {
-      "platform": "web"
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-connection"
+      ]
     }
   }
 }
