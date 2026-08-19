@@ -6,18 +6,16 @@ English version: [README-en.md](./README-en.md)
 
 ## 安装
 
-1. 把本目录链接进 dsh web profile 的模块目录（让 loader 能解析）：
+1. 发布版（npm）：
 
    ```bash
-   ln -sfn "$PWD" ~/.dsh/profiles/node_modules/@local/dsh-opencode-usage
+   dsh plugin --profile web add @kongjianguan/dsh-opencode-usage
    ```
 
-2. 在 `~/.dsh/profiles/web/cordis.patch.yml` 追加：
+   本地开发（link 安装，热重载友好）：
 
-   ```yaml
-   - insert:
-       - id: opencode-usage
-         name: '@local/dsh-opencode-usage'
+   ```bash
+   dsh plugin --profile web add link:/path/to/dsh-opencode-usage
    ```
 
 3. **重启 `dsh web`**（客户端模块扫描需重启生效；之后插件支持热重载）。

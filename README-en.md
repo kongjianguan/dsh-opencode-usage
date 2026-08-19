@@ -6,18 +6,16 @@ A persistent plugin for DeepSeek Harness (`dsh web`) that shows your **opencode.
 
 ## Install
 
-1. Symlink this directory into the dsh web profile's module directory (so the loader can resolve it):
+1. Published package (npm):
 
    ```bash
-   ln -sfn "$PWD" ~/.dsh/profiles/node_modules/@local/dsh-opencode-usage
+   dsh plugin --profile web add @kongjianguan/dsh-opencode-usage
    ```
 
-2. Append to `~/.dsh/profiles/web/cordis.patch.yml`:
+   Local development (link install, hot-reload friendly):
 
-   ```yaml
-   - insert:
-       - id: opencode-usage
-         name: '@local/dsh-opencode-usage'
+   ```bash
+   dsh plugin --profile web add link:/path/to/dsh-opencode-usage
    ```
 
 3. **Restart `dsh web`** (client modules are scanned at startup; hot reload works afterwards).
