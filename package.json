@@ -1,6 +1,6 @@
 {
   "name": "@kongjianguan/dsh-opencode-usage",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Persistent opencode.ai usage widget: header progress + settings page + webServer API routes.",
   "main": "lib/index.js",
   "exports": {
